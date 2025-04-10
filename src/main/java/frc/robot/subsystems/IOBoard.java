@@ -19,8 +19,9 @@ public class IOBoard extends SubsystemBase {
   private final DigitalOutput EXT0Pin = new DigitalOutput(8);
   private final DigitalOutput EXT1Pin = new DigitalOutput(9);
   private final DigitalOutput EXT2Pin = new DigitalOutput(10);
-  private final DigitalOutput EXT3Pin = new DigitalOutput(11);
-  private final DigitalOutput EXT4Pin = new DigitalOutput(12);
+
+  private final DigitalInput EXT3Pin = new DigitalInput(11);
+  private final DigitalInput EXT4Pin = new DigitalInput(12);
   // private final Servo servo = new Servo(2);// defines servo
   /*
    * CHANNEL 3 (A4)
@@ -51,11 +52,11 @@ public class IOBoard extends SubsystemBase {
   public void EXTValue2(boolean value) {
     EXT2Pin.set(value);
   }
-  public void EXTValue3(boolean value) {
-    EXT3Pin.set(value);
+  public boolean EXTValue3() {
+    return EXT3Pin.get();
   }
-  public void EXTValue4(boolean value) {
-    EXT4Pin.set(value);
+  public boolean EXTValue4() {
+    return EXT4Pin.get();
   }
 
   @Override

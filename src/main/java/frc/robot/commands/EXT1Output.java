@@ -30,6 +30,7 @@ public class EXT1Output extends Command {
      s_IoBoard.EXTValue0(state1);
      s_IoBoard.EXTValue1(state1);
      s_IoBoard.EXTValue2(state1);
+     
     System.out.println("EXT1: " + state1);
   }
 

@@ -12,11 +12,12 @@ import frc.robot.subsystems.IOBoard;
 public class EXT1Input extends Command {
   /** Creates a new EXT1. */
     private final IOBoard s_IoBoard;
-  Boolean state1;
-  public EXT1Input(IOBoard d_IoBoard, boolean state2) {
+
+  private boolean EXTVal3;
+  private boolean EXTVal4;
+  public EXT1Input(IOBoard d_IoBoard) {
     // Use addRequirements() here to declare subsystem dependencies.
     s_IoBoard = d_IoBoard;
-    state1=state2;
     addRequirements(s_IoBoard);
   }
 
@@ -28,9 +29,11 @@ public class EXT1Input extends Command {
   @Override
   public void execute() {
 
-     s_IoBoard.EXTValue3(state1);
-     s_IoBoard.EXTValue4(state1);
-    System.out.println("EXT1: " + state1);
+    EXTVal3 = s_IoBoard.EXTValue3();
+    EXTVal4 = s_IoBoard.EXTValue4();
+
+    System.out.println("EXT3: " + EXTVal3);
+    System.out.println("EXT4: " + EXTVal4);
   }
 
   // Called once the command ends or is interrupted.
@@ -40,6 +43,6 @@ public class EXT1Input extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    return false;
   }
 }
