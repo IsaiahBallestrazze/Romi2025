@@ -10,7 +10,8 @@ import frc.robot.commands.AdvancedCommand;
 import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
-import frc.robot.commands.EncoderGetDistanceTest;
+import frc.robot.commands.EXT1Input;
+import frc.robot.commands.EXT1Output;
 import frc.robot.commands.GyroCommand;
 import frc.robot.commands.LEDOff;
 import frc.robot.commands.LEDOn;
@@ -65,8 +66,13 @@ public class RobotContainer {
         JoystickButton gbutton = new JoystickButton(m_controller, 5); // for Gyro lesson 6
     gbutton.onTrue(new GyroCommand(m_drivetrain));
 
-    JoystickButton tbutton = new JoystickButton(m_controller, 6); // for Gyro lesson 6
-    tbutton.onTrue(new EncoderGetDistanceTest(m_drivetrain));
+    JoystickButton obutton = new JoystickButton(m_controller, 6); // crashes the code
+    obutton.onTrue(new EXT1Output(m_IoBoard, true));
+    obutton.onFalse(new EXT1Output(m_IoBoard, false));
+
+    JoystickButton ibutton = new JoystickButton(m_controller, 7); // crashes the code
+    ibutton.onTrue(new EXT1Input(m_IoBoard));
+    ibutton.onFalse(new EXT1Input(m_IoBoard));
     
  m_drivetrain.setDefaultCommand(getArcadeDriveCommand());
     // Setup SmartDashboard options

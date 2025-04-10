@@ -29,20 +29,7 @@ public class LEDOn extends Command {
     s_IoBoard.setRedLed(true);
     s_IoBoard.setYellowLed(true);
 
-    //s_IoBoard.TestEXT(true);
-    s_IoBoard.setEXT0(true);
-    s_IoBoard.setEXT1(true);
-    s_IoBoard.setEXT2(true);
-    s_IoBoard.setEXT3(false);
-    s_IoBoard.setEXT4(false);
-
-    System.out.println("EXT 3 Input: " + s_IoBoard.inEXT5());
-    System.out.println("EXT 4 Input: " + s_IoBoard.inEXT6());
-
-    s_IoBoard.Servo(180);
-
     System.out.println("BUTTON PRESSED");
-
   }
 
   // Called once the command ends or is interrupted.

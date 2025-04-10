@@ -27,7 +27,7 @@ public class Drivetrain extends SubsystemBase {
   private final Encoder m_leftEncoder = new Encoder(4, 5);
   private final Encoder m_rightEncoder = new Encoder(6, 7);
 
-  private final Encoder m_TestEncoder = new Encoder(12, 11); //TEST ENCODER THINGY
+  //private final Encoder m_TestEncoder = new Encoder(12, 11); //TEST ENCODER THINGY
 
   // Set up the differential drive controller
   private final DifferentialDrive m_diffDrive =
@@ -62,7 +62,6 @@ public class Drivetrain extends SubsystemBase {
     m_leftEncoder.reset();
     m_rightEncoder.reset();
 
-    m_TestEncoder.reset();
   }
 
   public int getLeftEncoderCount() {
@@ -80,26 +79,6 @@ public class Drivetrain extends SubsystemBase {
   public double getRightDistanceInch() {
     return m_rightEncoder.getDistance();
   }
-
-  ///////////////// encoder test
-  public double getTestDistanceInch() {
-    return m_TestEncoder.getDistance();
-  }
-
-  public double getRawEncoderTest() {
-    return m_TestEncoder.getRaw();
-  }
-
-  public double getRawEncoderRight() {
-    return m_rightEncoder.getRaw();
-  }
-
-  // public double getRawEncoderleft() {
-  //   return m_leftEncoder.getRaw();
-  // }
-
-
-/////////////////////
 
 
   public double getAverageDistanceInch() {

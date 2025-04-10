@@ -5,35 +5,32 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.robot.subsystems.IOBoard;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class EncoderGetDistanceTest extends Command {
-  /** Creates a new EncoderGetDistanceTest. */
-  Drivetrain s_Drivetrain;
-  public EncoderGetDistanceTest(Drivetrain d_Drivetrain) {
+public class EXT1Input extends Command {
+  /** Creates a new EXT1. */
+    private final IOBoard s_IoBoard;
+  Boolean state1;
+  public EXT1Input(IOBoard d_IoBoard, boolean state2) {
     // Use addRequirements() here to declare subsystem dependencies.
-    s_Drivetrain = d_Drivetrain;
-    addRequirements(s_Drivetrain);
+    s_IoBoard = d_IoBoard;
+    state1=state2;
+    addRequirements(s_IoBoard);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    //s_Drivetrain.resetEncoders();
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double encoderTestDistance = s_Drivetrain.getRawEncoderTest();
-    System.out.println("Test Motor: " + encoderTestDistance);
 
-    double RightMotorDistance = s_Drivetrain.getRawEncoderRight();
-    System.out.println("Right Motor: " + RightMotorDistance);
-
-    // double LeftMotorDistance = s_Drivetrain.getRawEncoderleft();
-    // System.out.println("Left Motor: " + LeftMotorDistance);
+     s_IoBoard.EXTValue3(state1);
+     s_IoBoard.EXTValue4(state1);
+    System.out.println("EXT1: " + state1);
   }
 
   // Called once the command ends or is interrupted.
